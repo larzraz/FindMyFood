@@ -11,7 +11,7 @@ namespace FindMyFood
         {
             InitializeComponent();
 
-            MainPage = new OwnFoodList();
+            MainPage = new Navigation();
         }
 
         protected override void OnStart()
