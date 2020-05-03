@@ -8,11 +8,19 @@
              xmlns:local="clr-namespace:FindMyFood.Models">
     <ContentPage.Content>
         <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly">
-            <Grid x:Name="DishGrid">
+            <Grid x:Name="DishGrid" Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
             <Frame Grid.Row="0">
                 <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="{local:ImageResource FindMyFood.Images.StockDishPhoto.jpg}"></Image>
-                    <Label Grid.Row="1" Text="Indsæt binding til overskrift" Style="{StaticResource Title_lbl}"></Label>
+                    <Label Grid.Row="1" Text="Indsæt binding til overskrift" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
                 </Grid>
             </Frame>
             <Frame Grid.Row="1">
