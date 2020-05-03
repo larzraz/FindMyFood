@@ -10,6 +10,16 @@
             <Style x:Key="PageStyle" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="#FFF598" />
             </Style>
+            <Style x:Key="Title_lbl" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="Normal_lbl" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="DarkGray" />
+                <Setter Property="FontAttributes" Value="None" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
