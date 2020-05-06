@@ -32,5 +32,15 @@ namespace FindMyFood.Views
             var list = JsonConvert.DeserializeObject<List<Ingredient>>(s);
             FoodList.ItemsSource = list;
         }
+
+        private void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edit_Invoked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
