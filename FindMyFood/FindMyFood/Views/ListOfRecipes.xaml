@@ -7,7 +7,7 @@
              x:Class="FindMyFood.Views.ListOfRecipes">
     <ContentPage.Content>
         <StackLayout Padding="0,10,0,0">
-            <ListView x:Name="ListView_Recipes">
+            <ListView x:Name="ListView_Recipes" ItemSelected="ListView_Recipes_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

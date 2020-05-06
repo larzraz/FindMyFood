@@ -12,16 +12,18 @@ namespace FindMyFood.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickedDish : ContentPage
     {
-        public PickedDish()
-        {
+        private readonly SelectedItemChangedEventArgs _recipe;
+        public PickedDish(SelectedItemChangedEventArgs e)
+        {          
             InitializeComponent();
+            _recipe = e;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             //Der skal sendes et object videre fra sidste page, med alt der skal bruges
-            DishGrid.BindingContext = "Binding Virkede";
+            DishGrid.BindingContext = _recipe;
         }
     }
 }

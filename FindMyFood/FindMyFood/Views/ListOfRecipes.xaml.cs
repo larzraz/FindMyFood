@@ -34,5 +34,15 @@ namespace FindMyFood.Views
                 ListView_Recipes.ItemsSource = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
             }
         }
+
+        private void ListView_Recipes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if(e.SelectedItem == null)
+            {
+                return;
+            }
+
+            Navigation.PushAsync(new PickedDish(e));
+        }
     }
 }
