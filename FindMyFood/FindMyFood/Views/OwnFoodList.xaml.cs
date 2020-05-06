@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FindMyFood.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,14 @@ namespace FindMyFood.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            FoodList.ItemsSource = JsonConvert.DeserializeObject<List<string>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
+            var list = JsonConvert.DeserializeObject<List<string>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
+            List<Ingredient> foodList = new List<Ingredient>();
+            foreach (string s in list)
+            {
+                foodList.Add(new Ingredient { Name = s });
+            }
+             
+            FoodList.ItemsSource =  foodList;
         }
     }
 }

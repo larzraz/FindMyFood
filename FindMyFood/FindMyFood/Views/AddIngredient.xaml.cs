@@ -1,4 +1,5 @@
-﻿using FindMyFood.StorageRoutes;
+﻿using FindMyFood.Models;
+using FindMyFood.StorageRoutes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,10 @@ namespace FindMyFood.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            
             var ingredientList = JsonConvert.DeserializeObject<List<string>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
-            ingredientList.Add(IngredientName.Text);
+            var addedIngredient = new Ingredient { Name = IngredientName.Text };
+            ingredientList.Add(addedIngredient.Name);
             Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList] = JsonConvert.SerializeObject(ingredientList);
             await Navigation.PopModalAsync();
         }
