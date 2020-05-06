@@ -20,11 +20,11 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                     <Image Grid.Row="0" Source="{local:ImageResource FindMyFood.Images.StockDishPhoto.jpg}"></Image>
-                    <Label Grid.Row="1" Text="Indsæt binding til overskrift" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
+                    <Label Grid.Row="1" Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
                 </Grid>
             </Frame>
             <Frame Grid.Row="1">
-                <Label Text="{Binding}" Style="{StaticResource Normal_lbl}"></Label>
+                <Label Text="Indsæt de nødvendige bindings" Style="{StaticResource Normal_lbl}"></Label>
             </Frame>
             </Grid>
         </FlexLayout>
