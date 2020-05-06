@@ -16,4 +16,10 @@
             <local:PickedDish />
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="Recipes">
+        <!--Fjernes når vi har listen af opskrifter på plads-->
+        <x:Arguments>
+            <local:ListOfRecipes />
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>
