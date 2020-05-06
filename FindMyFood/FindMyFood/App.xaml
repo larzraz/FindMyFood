@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style x:Key="PageStyle" TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="#FFF598" />
+                <Setter Property="BackgroundColor" Value="#FFF" />
             </Style>
             <Style x:Key="Title_lbl" TargetType="Label">
                 <Setter Property="FontSize" Value="24" />
