@@ -11,10 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\OwnFoodList.png" />
+    <None Remove="Images\Recipies.png" />
     <None Remove="Images\StockDishPhoto.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\OwnFoodList.png" />
+    <EmbeddedResource Include="Images\Recipies.png" />
     <EmbeddedResource Include="Images\StockDishPhoto.jpg" />
   </ItemGroup>
 

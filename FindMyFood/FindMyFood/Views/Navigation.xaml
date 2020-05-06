@@ -5,8 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.Navigation"
-             xmlns:local="clr-namespace:FindMyFood.Views">
-    <NavigationPage Title="My Food">
+             xmlns:local="clr-namespace:FindMyFood.Views"
+             xmlns:images="clr-namespace:FindMyFood.Models"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"            
+            android:TabbedPage.ToolbarPlacement="Bottom"
+          >
+    <NavigationPage Title="My Food" IconImageSource="{images:ImageResource FindMyFood.Images.OwnFoodList.png}">
         <x:Arguments>
             <local:OwnFoodList />
         </x:Arguments>
@@ -16,7 +20,7 @@
             <local:PickedDish />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Recipes">
+    <NavigationPage Title="Recipes" IconImageSource="{images:ImageResource FindMyFood.Images.Recipies.png}">
         <!--Fjernes når vi har listen af opskrifter på plads-->
         <x:Arguments>
             <local:ListOfRecipes />

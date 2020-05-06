@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="IngredientName" Placeholder="Insert ingredient name..."></Entry>
-            <Entry x:Name="Quantity" Placeholder="Insert number of ingredients"></Entry>
+            <Entry x:Name="Quantity" Keyboard="Numeric" Placeholder="Insert number of ingredients"></Entry>
             <DatePicker x:Name="ExpirationDate"></DatePicker>
             <Button Text="Submit" Clicked="Button_Clicked"></Button>
         </StackLayout>
