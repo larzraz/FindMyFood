@@ -17,7 +17,6 @@ namespace FindMyFood.Views
     public partial class ListOfRecipes : ContentPage
     {
         private SpoonacularApiClient _api;
-        private ObservableCollection<Recipe1> recipes = new ObservableCollection<Recipe1>();
 
         public ListOfRecipes()
         {
@@ -28,13 +27,11 @@ namespace FindMyFood.Views
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            ListView_Recipes.ItemsSource = recipes;
-            if (recipes.Count == 0)
+            var ingredients = JsonConvert.DeserializeObject<List<Models.Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
+            var listIngredients = ingredients.Select(x => x.Name).ToArray();
+            if (listIngredients.Length > 0)
             {
-                foreach (var recipe in await _api.GetRandomRecipes(numberOfRecipes: 20))
-                {
-                    recipes.Add(recipe);
-                }
+                ListView_Recipes.ItemsSource = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
             }
         }
     }

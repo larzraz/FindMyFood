@@ -1,6 +1,8 @@
-﻿using FindMyFood.Views;
+﻿using FindMyFood.Models;
+using FindMyFood.Views;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,7 +21,7 @@ namespace FindMyFood
         {
             if (!Current.Properties.ContainsKey(StorageRoutes.StorageRoutes.IngredientList))
             {
-                Current.Properties.Add(StorageRoutes.StorageRoutes.IngredientList, JsonConvert.SerializeObject(Array.Empty<string>()));
+                Current.Properties.Add(StorageRoutes.StorageRoutes.IngredientList, JsonConvert.SerializeObject(new List<Ingredient>()));
             }
         }
 
