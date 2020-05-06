@@ -1,4 +1,5 @@
 ﻿using FindMyFood.Views;
+using Newtonsoft.Json;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +17,10 @@ namespace FindMyFood
 
         protected override void OnStart()
         {
+            if (!Current.Properties.ContainsKey(StorageRoutes.StorageRoutes.IngredientList))
+            {
+                Current.Properties.Add(StorageRoutes.StorageRoutes.IngredientList, JsonConvert.SerializeObject(Array.Empty<string>()));
+            }
         }
 
         protected override void OnSleep()
