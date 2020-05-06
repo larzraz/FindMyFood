@@ -30,11 +30,6 @@ namespace FindMyFood.Views
             var lol = Application.Current.Properties;
             var s = Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString();
             var list = JsonConvert.DeserializeObject<List<Ingredient>>(s);
-            //List<Ingredient> foodList = new List<Ingredient>();
-            //foreach (string s in list)
-            //{
-            //    foodList.Add(new Ingredient { Name = s });
-            //}
             FoodList.ItemsSource = list;
         }
     }
