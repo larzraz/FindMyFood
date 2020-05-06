@@ -11,12 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Delete.png" />
     <None Remove="Images\OwnFoodList.png" />
     <None Remove="Images\Recipies.png" />
     <None Remove="Images\StockDishPhoto.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\Delete.png" />
     <EmbeddedResource Include="Images\OwnFoodList.png" />
     <EmbeddedResource Include="Images\Recipies.png" />
     <EmbeddedResource Include="Images\StockDishPhoto.jpg" />
@@ -25,8 +27,8 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
   </ItemGroup>
 
   <ItemGroup>
