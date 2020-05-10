@@ -1,4 +1,5 @@
 ﻿
+using FindMyFood.Api.Dtos;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,7 +19,7 @@ namespace FindMyFood.Views
                 return;
             }
 
-            Navigation.PushAsync(new PickedDish(e));
+            Navigation.PushAsync(new PickedDish((Recipe)e.SelectedItem));
         }
     }
 }

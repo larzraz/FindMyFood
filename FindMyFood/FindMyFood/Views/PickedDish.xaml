@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FindMyFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.PickedDish"
              xmlns:local="clr-namespace:FindMyFood.Models">
+    <!--<ContentPage.BindingContext>
+        <vm:PickedDishViewModel/>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
         <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly">
+            
             <Grid x:Name="DishGrid" Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -19,13 +24,32 @@
                             <RowDefinition Height="3*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                    <Image Grid.Row="0" Source="{local:ImageResource FindMyFood.Images.StockDishPhoto.jpg}"></Image>
+                    <Image Grid.Row="0" Source="{Binding Image}"></Image>
                     <Label Grid.Row="1" Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
                 </Grid>
             </Frame>
-            <Frame Grid.Row="1">
-                <Label Text="Indsæt de nødvendige bindings" Style="{StaticResource Normal_lbl}"></Label>
-            </Frame>
+                <Frame Grid.Row="1">
+                    <StackLayout>
+                    <ListView ItemsSource="{Binding usedIngredients}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding name}" ></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <ListView ItemsSource="{Binding missedIngredients}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding name}" ></Label>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    </StackLayout>
+                </Frame>
             </Grid>
         </FlexLayout>
     </ContentPage.Content>
