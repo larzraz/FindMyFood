@@ -82,7 +82,7 @@
             <SwipeView>
 
             </SwipeView>
-            <Button Clicked="Button_Clicked" Text="Add food to your LIST!"></Button>
+            <Button Command="{Binding AddIngredientCommand}" Text="Add food to your LIST!"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
