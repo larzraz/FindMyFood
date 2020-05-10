@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FindMyFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.AddIngredient">
+    <ContentPage.BindingContext>
+        <vm:AddIngredientViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="IngredientName" Placeholder="Insert ingredient name..."></Entry>
-            <Entry x:Name="Quantity" Keyboard="Numeric" Placeholder="Insert number of ingredients"></Entry>
-            <DatePicker x:Name="ExpirationDate"></DatePicker>
-            <Button Text="Submit" Clicked="Button_Clicked"></Button>
+            <Entry x:Name="IngredientName" Text="{Binding Name}" Placeholder="Insert ingredient name..."></Entry>
+            <Entry x:Name="Quantity" Text="{Binding Quantity}" Keyboard="Numeric" Placeholder="Insert number of ingredients"></Entry>
+            <DatePicker x:Name="ExpirationDate" Date="{Binding ExpirationDate}"></DatePicker>
+            <Button Text="Submit" Command="{Binding SubmitCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

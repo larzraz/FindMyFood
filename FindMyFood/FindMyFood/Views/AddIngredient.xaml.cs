@@ -19,14 +19,5 @@ namespace FindMyFood.Views
         {
             InitializeComponent();
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            var ingredientList = JsonConvert.DeserializeObject<List<Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
-            var addedIngredient = new Ingredient { Name = IngredientName.Text, ExpirationDate = ExpirationDate.Date, Quantity = Int32.Parse(Quantity.Text)};
-            ingredientList.Add(addedIngredient);
-            Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList] = JsonConvert.SerializeObject(ingredientList);
-            await Navigation.PopModalAsync();
-        }
     }
 }
