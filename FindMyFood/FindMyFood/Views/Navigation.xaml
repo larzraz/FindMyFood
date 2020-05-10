@@ -15,11 +15,7 @@
             <local:OwnFoodList />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Picked Dish"> <!--Fjernes når vi har listen af opskrifter på plads-->
-        <x:Arguments>
-            <local:PickedDish />
-        </x:Arguments>
-    </NavigationPage>
+   
     <NavigationPage Title="Recipes" IconImageSource="{images:ImageResource FindMyFood.Images.Recipies.png}">
         <!--Fjernes når vi har listen af opskrifter på plads-->
         <x:Arguments>

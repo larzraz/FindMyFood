@@ -3,19 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" 
               xmlns:images="clr-namespace:FindMyFood.Models"
              xmlns:local="clr-namespace:FindMyFood.Views"
+             xmlns:vm="clr-namespace:FindMyFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.OwnFoodList"
              Style="{StaticResource PageStyle}">
+    <ContentPage.BindingContext>
+        <vm:OwnFoodListViewModel/>
+        
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <local:ExpirationdateValueConverter x:Key="ExpirationdateValueConverter"/>
     </ContentPage.Resources>
+    <ContentPage.Behaviors>
+        <behaviors:EventHandlerBehavior EventName="Appearing">
+            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
+        </behaviors:EventHandlerBehavior>
+        <behaviors:EventHandlerBehavior EventName="Disappearing">
+            <behaviors:InvokeCommandAction Command="{Binding PageDisappearingCommand}" />
+        </behaviors:EventHandlerBehavior>
+    </ContentPage.Behaviors>
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="FoodList"
                       HasUnevenRows="True"
-                      RowHeight="60">
+                      RowHeight="60"
+                      ItemsSource="{Binding Ingredients}">
                 <ListView.ItemTemplate>
                     
                     <DataTemplate>
@@ -65,7 +80,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <SwipeView>
-                
+
             </SwipeView>
             <Button Clicked="Button_Clicked" Text="Add food to your LIST!"></Button>
         </StackLayout>

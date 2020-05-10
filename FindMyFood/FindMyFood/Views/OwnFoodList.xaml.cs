@@ -24,14 +24,14 @@ namespace FindMyFood.Views
             await Navigation.PushModalAsync(new AddIngredient());
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            var lol = Application.Current.Properties;
-            var s = Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString();
-            var list = JsonConvert.DeserializeObject<List<Ingredient>>(s);
-            FoodList.ItemsSource = list;
-        }
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    var lol = Application.Current.Properties;
+        //    var s = Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString();
+        //    var list = JsonConvert.DeserializeObject<List<Ingredient>>(s);
+        //    FoodList.ItemsSource = list;
+        //}
 
         private void SwipeItem_Invoked(object sender, EventArgs e)
         {
