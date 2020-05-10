@@ -16,25 +16,10 @@ namespace FindMyFood.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListOfRecipes : ContentPage
     {
-        private SpoonacularApiClient _api;
-
         public ListOfRecipes()
         {
-            _api = new SpoonacularApiClient();
             InitializeComponent();
         }
-
-        protected async override void OnAppearing()
-        {
-            base.OnAppearing();
-            var ingredients = JsonConvert.DeserializeObject<List<Models.Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
-            var listIngredients = ingredients.Select(x => x.Name).ToArray();
-            if (listIngredients.Length > 0)
-            {
-                ListView_Recipes.ItemsSource = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
-            }
-        }
-
         private void ListView_Recipes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if(e.SelectedItem == null)
