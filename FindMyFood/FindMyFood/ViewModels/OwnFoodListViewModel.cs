@@ -18,6 +18,7 @@ namespace FindMyFood.ViewModels
         public StorageManager SM { get; set; }
         public ICommand PageAppearingCommand { get; private set; }
         public ICommand AddIngredientCommand => new Command(AddIngredient);
+        public ICommand RemoveIngredientCommand => new Command<Ingredient>(RemoveIngredient); 
         private ObservableCollection<Ingredient> _ingredients;
         public ObservableCollection<Ingredient> Ingredients { get { return _ingredients; } set { _ingredients = value; OnPropertyChanged("Ingredients"); } }
         public OwnFoodListViewModel()
@@ -30,6 +31,12 @@ namespace FindMyFood.ViewModels
         private async void AddIngredient()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddIngredient());
+        }
+        private void RemoveIngredient(Ingredient obj)
+        {
+            SM.DeleteIngredient(obj);
+            _ingredients = new ObservableCollection<Ingredient>(SM.GetOwnFoodList());
+            OnPropertyChanged("Ingredients");
         }
 
         private void OnPageAppearing()

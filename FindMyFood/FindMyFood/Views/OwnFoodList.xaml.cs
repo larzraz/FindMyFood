@@ -11,15 +11,5 @@ namespace FindMyFood.Views
         {
             InitializeComponent();
         }
-
-        private void SwipeItem_Invoked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Edit_Invoked(object sender, EventArgs e)
-        {
-
-        }
     }
 }

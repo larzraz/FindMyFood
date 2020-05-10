@@ -24,7 +24,7 @@ namespace FindMyFood.ViewModels
         private async void Submit()
         {
             var ingredientList = JsonConvert.DeserializeObject<List<Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
-            var addedIngredient = new Ingredient { Name = Name, ExpirationDate = ExpirationDate.Date, Quantity = Int32.Parse(Quantity) };
+            var addedIngredient = new Ingredient { Name = Name, ExpirationDate = ExpirationDate.Date, Quantity = Int32.Parse(Quantity), Guid = Guid.NewGuid() };
             ingredientList.Add(addedIngredient);
             Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList] = JsonConvert.SerializeObject(ingredientList);
             await Application.Current.MainPage.Navigation.PopModalAsync();
