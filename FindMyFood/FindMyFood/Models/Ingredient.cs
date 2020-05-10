@@ -11,6 +11,7 @@ namespace FindMyFood.Models
         public string Name { get; set; }
         public int Quantity { get; set; }
         public DateTime ExpirationDate { get; set; }
+        public Guid Guid { get; set; }
 
     }
 }
