@@ -19,10 +19,7 @@ namespace FindMyFood.Views
        
         public PickedDish()
         {          
-            InitializeComponent();
-         
-            
-            
+            InitializeComponent();      
         }
 
         protected override void OnAppearing()

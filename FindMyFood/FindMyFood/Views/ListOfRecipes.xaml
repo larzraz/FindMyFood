@@ -35,7 +35,7 @@
                                     <ColumnDefinition Width="2*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Source="{Binding Image}"></Image>
-                                <Label Grid.Column="1" Text="{Binding Title}"></Label>
+                                <Label Grid.Column="1" Text="{Binding Title}" Style="{StaticResource S_Title_lbl}"></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

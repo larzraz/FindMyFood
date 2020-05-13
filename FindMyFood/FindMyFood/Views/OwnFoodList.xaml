@@ -69,8 +69,8 @@
                                             <ColumnDefinition Width="*"/>
 
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0" Padding="0,15,0,0"/>
-                                        <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" FontSize="20" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0" Padding="0,15,0,0"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource S_Title_lbl}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0" Padding="0,15,0,0"/>
+                                        <Label Text="{Binding Quantity, StringFormat='Quantity: {0}'}" Style="{StaticResource S_Title_lbl}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="10,0,0,0" Padding="0,15,0,0"/>
                                         <BoxView Color="{Binding ExpirationDate,Converter={StaticResource ExpirationdateValueConverter}}" WidthRequest="10" CornerRadius="5" HorizontalOptions="End"  Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Margin="10,10,10,10"/>
                                        
                                     </Grid>

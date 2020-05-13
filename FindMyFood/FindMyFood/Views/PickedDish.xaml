@@ -7,7 +7,7 @@
              xmlns:vm="clr-namespace:FindMyFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.PickedDish"
-             xmlns:local="clr-namespace:FindMyFood.Models">
+             xmlns:images="clr-namespace:FindMyFood.Models">
     <ContentPage.Behaviors>
         <behaviors:EventHandlerBehavior EventName="Appearing">
             <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
@@ -21,67 +21,70 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly">
-            
             <Grid x:Name="DishGrid" Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-            <Frame Grid.Row="0">
-                <Grid>
+                <Frame Grid.Row="0">
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="2*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                    <Image Grid.Row="0" Source="{Binding Recipe.Image}"></Image>
-                        <Label Grid.Row="1" Text="{Binding Recipe.Title}" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
-                </Grid>
-            </Frame>
+                        <Image Grid.Row="0" Source="{Binding Recipe.Image}" Aspect="Fill"></Image>
+                        <Label Grid.Row="1" Text="{Binding Recipe.Title}"  HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
+                    </Grid>
+                </Frame>
                 <Frame Grid.Row="1">
-                    <StackLayout>
-
-                        <ListView ItemsSource="{Binding Recipe.usedIngredients}" HasUnevenRows="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView ItemsSource="{Binding Recipe.usedIngredients}" HasUnevenRows="True" Grid.Column="0" Grid.Row="0">
                             <ListView.Header>
                                 <Label Text="Owned ingredients" Style="{StaticResource Header_lbl}"></Label>
                             </ListView.Header>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
                                     <ViewCell>
                                         <Grid HeightRequest="25">
                                             <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}"></Label>
+                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}"></Label>
                                         </Grid>
                                     </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                        <ListView ItemsSource="{Binding Recipe.missedIngredients}" HasUnevenRows="True">
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <ListView ItemsSource="{Binding Recipe.missedIngredients}" HasUnevenRows="True" Grid.Column="1" Grid.Row="0">
                             <ListView.Header>
                                 <Label Text="Missing ingredients" Style="{StaticResource Header_lbl}"></Label>
                             </ListView.Header>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
                                         <Grid HeightRequest="25">
                                             <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}" ></Label>
+                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}"></Label>
                                         </Grid>
                                     </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    </StackLayout>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
                 </Frame>
                 <Frame Grid.Row="2">
                     <CarouselView ItemsSource="{Binding Instruction.steps}" EmptyView="No instructions available">
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
-                                    <Label Text="{Binding step}"></Label>
+                                    <Label Text="Instructions for the dish" Style="{StaticResource Header_lbl}"></Label>
+                                    <Label Text="{Binding step}" Style="{StaticResource Normal_lbl}"></Label>
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
-                        
                     </CarouselView>
                 </Frame>
             </Grid>

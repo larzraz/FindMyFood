@@ -25,6 +25,10 @@
                 <Setter Property="TextColor" Value="Black"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="S_Title_lbl" TargetType="Label">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
