@@ -20,7 +20,7 @@ namespace FindMyFood.ViewModels
         public ICommand AddIngredientCommand => new Command(AddIngredient);
         public ICommand RemoveIngredientCommand => new Command<Ingredient>(RemoveIngredient); 
         private ObservableCollection<Ingredient> _ingredients;
-        public ObservableCollection<Ingredient> Ingredients { get { return _ingredients; } set { _ingredients = value; OnPropertyChanged("Ingredients"); } }
+        public ObservableCollection<Ingredient> Ingredients { get { return _ingredients; } set { _ingredients = value; OnPropertyChanged(nameof(Ingredients)); } }
         public OwnFoodListViewModel()
         {
             SM = new StorageManager();
@@ -36,15 +36,13 @@ namespace FindMyFood.ViewModels
         {
             SM.DeleteIngredient(obj);
             _ingredients = new ObservableCollection<Ingredient>(SM.GetOwnFoodList());
-            OnPropertyChanged("Ingredients");
+            OnPropertyChanged(nameof(Ingredients));
         }
 
         private void OnPageAppearing()
-        {      
+        {
             _ingredients = new ObservableCollection<Ingredient>(SM.GetOwnFoodList());
-            OnPropertyChanged("Ingredients");
+            OnPropertyChanged(nameof(Ingredients));
         }
-      
-       
     }
 }

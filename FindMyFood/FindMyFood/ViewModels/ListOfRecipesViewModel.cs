@@ -16,7 +16,7 @@ namespace FindMyFood.ViewModels
         private SpoonacularApiClient _api;
         public ICommand PageAppearingCommand { get; private set; }
         private ObservableCollection<Recipe> _recipes;
-        public ObservableCollection<Recipe> Recipes { get => _recipes; set { _recipes = value; OnPropertyChanged("Recipes"); } }
+        public ObservableCollection<Recipe> Recipes { get => _recipes; set { _recipes = value; OnPropertyChanged(nameof(Recipes)); } }
         public ListOfRecipesViewModel()
         {
             _api = new SpoonacularApiClient();
@@ -32,7 +32,7 @@ namespace FindMyFood.ViewModels
             {
                 _recipes = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
             }
-            OnPropertyChanged("Recipes");
+            OnPropertyChanged(nameof(Recipes));
         }
     }
 }
