@@ -14,6 +14,7 @@ namespace FindMyFood.ViewModels
     public class ListOfRecipesViewModel:BaseViewModel
     {
         private SpoonacularApiClient _api;
+        public bool IsLoading { get; set; }
         public ICommand PageAppearingCommand { get; private set; }
         private ObservableCollection<Recipe> _recipes;
         public ObservableCollection<Recipe> Recipes { get => _recipes; set { _recipes = value; OnPropertyChanged(nameof(Recipes)); } }
@@ -26,6 +27,8 @@ namespace FindMyFood.ViewModels
 
         private async void OnPageAppearing()
         {
+            IsLoading = true;
+            OnPropertyChanged(nameof(IsLoading));
             var ingredients = JsonConvert.DeserializeObject<List<Models.Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
             var listIngredients = ingredients.Select(x => x.Name).ToArray();
             if (listIngredients.Length > 0)
@@ -33,6 +36,8 @@ namespace FindMyFood.ViewModels
                 _recipes = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
             }
             OnPropertyChanged(nameof(Recipes));
+            IsLoading = false;
+            OnPropertyChanged(nameof(IsLoading));
         }
     }
 }
