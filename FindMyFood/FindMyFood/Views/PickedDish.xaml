@@ -30,21 +30,32 @@
             </Frame>
                 <Frame Grid.Row="1">
                     <StackLayout>
-                    <ListView ItemsSource="{Binding usedIngredients}">
+                        
+                    <ListView ItemsSource="{Binding usedIngredients}" HasUnevenRows="True">
+                            <ListView.Header>
+                                <Label Text="Owned ingredients" Style="{StaticResource Header_lbl}"></Label>
+                            </ListView.Header>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Label Text="{Binding name}" ></Label>
-                                </ViewCell>
+                                    <ViewCell>
+                                        <Grid HeightRequest="25">
+                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}"></Label>
+                                        </Grid>
+                                    </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView ItemsSource="{Binding missedIngredients}">
+                    <ListView ItemsSource="{Binding missedIngredients}" HasUnevenRows="True">
+                            <ListView.Header>
+                                <Label Text="Missing ingredients" Style="{StaticResource Header_lbl}"></Label>
+                            </ListView.Header>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Label Text="{Binding name}" ></Label>
-                                </ViewCell>
+                                        <Grid HeightRequest="25">
+                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}" ></Label>
+                                        </Grid>
+                                    </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
