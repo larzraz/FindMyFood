@@ -28,15 +28,15 @@ namespace FindMyFood.ViewModels
         private async void OnPageAppearing()
         {
             IsLoading = true;
-            OnPropertyChanged(nameof(IsLoading));
             var ingredients = JsonConvert.DeserializeObject<List<Models.Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
             var listIngredients = ingredients.Select(x => x.Name).ToArray();
             if (listIngredients.Length > 0)
             {
+                OnPropertyChanged(nameof(IsLoading));
                 _recipes = new ObservableCollection<Recipe>(await _api.GetRecipesByIngredients(ingredients: listIngredients));
+                IsLoading = false;
             }
             OnPropertyChanged(nameof(Recipes));
-            IsLoading = false;
             OnPropertyChanged(nameof(IsLoading));
         }
     }

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyFood.Android", "FindMyFood\FindMyFood.Android\FindMyFood.Android.csproj", "{A66ACE2A-B7BB-4088-AE46-68952A90C6EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyFood", "FindMyFood\FindMyFood\FindMyFood.csproj", "{572030B5-524C-49C2-962A-32DDC0B0BCE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyFood", "FindMyFood\FindMyFood\FindMyFood.csproj", "{572030B5-524C-49C2-962A-32DDC0B0BCE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyFood.UnitTests", "FindMyFood.UnitTests\FindMyFood.UnitTests.csproj", "{D7B6B2C5-EA9C-4046-9BD7-EC81CA1C9509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{572030B5-524C-49C2-962A-32DDC0B0BCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{572030B5-524C-49C2-962A-32DDC0B0BCE3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{572030B5-524C-49C2-962A-32DDC0B0BCE3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D7B6B2C5-EA9C-4046-9BD7-EC81CA1C9509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B6B2C5-EA9C-4046-9BD7-EC81CA1C9509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B6B2C5-EA9C-4046-9BD7-EC81CA1C9509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B6B2C5-EA9C-4046-9BD7-EC81CA1C9509}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

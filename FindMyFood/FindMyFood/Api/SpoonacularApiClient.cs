@@ -48,5 +48,48 @@ namespace FindMyFood.Api
             var response = await _client.ExecuteAsync<List<Recipe>>(request);
             return response.Data;
         }
+
+        public async Task<List<Instruction>> GetInstructions(int recipeId)
+        {
+            var request = new RestRequest($"recipes/{recipeId}/analyzedInstructions");
+            var response = await _client.ExecuteAsync<List<Instruction>>(request);
+            return response.Data;
+        }
     }
+
+    public class Instruction
+    {
+        public string name { get; set; }
+        public List<Step> steps { get; set; }
+    }
+
+    public class Step
+    {
+        public int number { get; set; }
+        public string step { get; set; }
+        public List<Ingredient> ingredients { get; set; }
+        public List<Equipment> equipment { get; set; }
+        public Length length { get; set; }
+    }
+
+    public class Length
+    {
+        public int number { get; set; }
+        public string unit { get; set; }
+    }
+
+    public class Ingredient
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+    }
+
+    public class Equipment
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string image { get; set; }
+    }
+
 }
