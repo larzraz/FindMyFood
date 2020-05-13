@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors" 
              xmlns:vm="clr-namespace:FindMyFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FindMyFood.Views.PickedDish"
              xmlns:local="clr-namespace:FindMyFood.Models">
-    <!--<ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <behaviors:EventHandlerBehavior EventName="Appearing">
+            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
+        </behaviors:EventHandlerBehavior>
+        <behaviors:EventHandlerBehavior EventName="Disappearing">
+            <behaviors:InvokeCommandAction Command="{Binding PageDisappearingCommand}" />
+        </behaviors:EventHandlerBehavior>
+    </ContentPage.Behaviors>
+    <ContentPage.BindingContext>
         <vm:PickedDishViewModel/>
-    </ContentPage.BindingContext>-->
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly">
             
@@ -17,6 +26,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    
                 </Grid.RowDefinitions>
             <Frame Grid.Row="0">
                 <Grid>
@@ -24,14 +35,14 @@
                             <RowDefinition Height="3*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                    <Image Grid.Row="0" Source="{Binding Image}"></Image>
-                    <Label Grid.Row="1" Text="{Binding Title}" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
+                    <Image Grid.Row="0" Source="{Binding Recipe.Image}"></Image>
+                        <Label Grid.Row="1" Text="{Binding Recipe.Title}" HorizontalOptions="Center" Style="{StaticResource Title_lbl}"></Label>
                 </Grid>
             </Frame>
                 <Frame Grid.Row="1">
                     <StackLayout>
-                        
-                    <ListView ItemsSource="{Binding usedIngredients}" HasUnevenRows="True">
+
+                        <ListView ItemsSource="{Binding Recipe.usedIngredients}" HasUnevenRows="True">
                             <ListView.Header>
                                 <Label Text="Owned ingredients" Style="{StaticResource Header_lbl}"></Label>
                             </ListView.Header>
@@ -45,7 +56,7 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <ListView ItemsSource="{Binding missedIngredients}" HasUnevenRows="True">
+                        <ListView ItemsSource="{Binding Recipe.missedIngredients}" HasUnevenRows="True">
                             <ListView.Header>
                                 <Label Text="Missing ingredients" Style="{StaticResource Header_lbl}"></Label>
                             </ListView.Header>
@@ -60,6 +71,18 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     </StackLayout>
+                </Frame>
+                <Frame Grid.Row="2">
+                    <CarouselView ItemsSource="{Binding Instruction.steps}" EmptyView="No instructions available">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding step}"></Label>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                        
+                    </CarouselView>
                 </Frame>
             </Grid>
         </FlexLayout>

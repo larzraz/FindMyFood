@@ -1,5 +1,6 @@
 ﻿
 using FindMyFood.Api.Dtos;
+using FindMyFood.LocalStorage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,8 +19,9 @@ namespace FindMyFood.Views
             {
                 return;
             }
+            Store.SelectedRecipe = (Recipe)e.SelectedItem;
 
-            Navigation.PushAsync(new PickedDish((Recipe)e.SelectedItem));
+            Navigation.PushAsync(new PickedDish());
         }
     }
 }

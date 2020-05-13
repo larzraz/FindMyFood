@@ -49,11 +49,15 @@ namespace FindMyFood.Api
             return response.Data;
         }
 
-        public async Task<List<Instruction>> GetInstructions(int recipeId)
+        public async Task<Instruction> GetInstructions(int recipeId)
         {
             var request = new RestRequest($"recipes/{recipeId}/analyzedInstructions");
             var response = await _client.ExecuteAsync<List<Instruction>>(request);
-            return response.Data;
+            if(response.Data.Count == 0)
+            {
+                return new Instruction();
+            }
+            return response.Data[0];
         }
     }
 

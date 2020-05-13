@@ -1,4 +1,5 @@
 ﻿using FindMyFood.Api.Dtos;
+using FindMyFood.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,13 +15,14 @@ namespace FindMyFood.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PickedDish : ContentPage
     {
-        private readonly Recipe _recipe;
 
-        public PickedDish(Recipe e)
+       
+        public PickedDish()
         {          
             InitializeComponent();
-            _recipe = e;
-            BindingContext = _recipe;
+         
+            
+            
         }
 
         protected override void OnAppearing()
