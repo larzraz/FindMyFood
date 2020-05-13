@@ -1,4 +1,5 @@
-﻿using FindMyFood.Models;
+﻿using FindMyFood.LocalStorage;
+using FindMyFood.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace FindMyFood.ViewModels
 {
     public class AddIngredientViewModel:BaseViewModel
     {
-
+       
         public ICommand SubmitCommand => new Command(Submit);
         public string Name { get; set; }
         public DateTime ExpirationDate { get; set; }
@@ -23,10 +24,7 @@ namespace FindMyFood.ViewModels
 
         private async void Submit()
         {
-            var ingredientList = JsonConvert.DeserializeObject<List<Ingredient>>(Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList].ToString());
-            var addedIngredient = new Ingredient { Name = Name, ExpirationDate = ExpirationDate.Date, Quantity = Int32.Parse(Quantity), Guid = Guid.NewGuid() };
-            ingredientList.Add(addedIngredient);
-            Application.Current.Properties[StorageRoutes.StorageRoutes.IngredientList] = JsonConvert.SerializeObject(ingredientList);
+            StorageManager.AddIngredient(new Ingredient { Name = Name, ExpirationDate = ExpirationDate.Date, Quantity = Int32.Parse(Quantity), Guid = Guid.NewGuid() });
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
     }

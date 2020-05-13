@@ -19,7 +19,9 @@
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
     <ContentPage.Content>
+        
         <StackLayout Padding="0,10,0,0">
+            <ActivityIndicator Color="Red" IsRunning="{Binding IsLoading}" />
             <ListView x:Name="ListView_Recipes" ItemsSource="{Binding Recipes}"  ItemSelected="ListView_Recipes_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -13,19 +13,18 @@ using Xamarin.Forms;
 
 namespace FindMyFood.ViewModels
 {
-   public class OwnFoodListViewModel:BaseViewModel, INotifyPropertyChanged
+   public class OwnFoodListViewModel:BaseViewModel
     {
-        public StorageManager SM { get; set; }
+
         public ICommand PageAppearingCommand { get; private set; }
         public ICommand AddIngredientCommand => new Command(AddIngredient);
         public ICommand RemoveIngredientCommand => new Command<Ingredient>(RemoveIngredient); 
-        private ObservableCollection<Ingredient> _ingredients;
-        public ObservableCollection<Ingredient> Ingredients { get { return _ingredients; } set { _ingredients = value; OnPropertyChanged("Ingredients"); } }
+        public ObservableCollection<Ingredient> Ingredients { get; set;  }
         public OwnFoodListViewModel()
         {
-            SM = new StorageManager();
+
             PageAppearingCommand = new Command(OnPageAppearing);
-            _ingredients = new ObservableCollection<Ingredient>();
+            Ingredients = new ObservableCollection<Ingredient>();
 
         }
         private async void AddIngredient()
@@ -34,17 +33,15 @@ namespace FindMyFood.ViewModels
         }
         private void RemoveIngredient(Ingredient obj)
         {
-            SM.DeleteIngredient(obj);
-            _ingredients = new ObservableCollection<Ingredient>(SM.GetOwnFoodList());
-            OnPropertyChanged("Ingredients");
+            StorageManager.DeleteIngredient(obj);
+            Ingredients = new ObservableCollection<Ingredient>(StorageManager.GetOwnFoodList());
+            OnPropertyChanged(nameof(Ingredients));
         }
 
         private void OnPageAppearing()
-        {      
-            _ingredients = new ObservableCollection<Ingredient>(SM.GetOwnFoodList());
-            OnPropertyChanged("Ingredients");
+        {
+            Ingredients = new ObservableCollection<Ingredient>(StorageManager.GetOwnFoodList());
+            OnPropertyChanged(nameof(Ingredients));
         }
-      
-       
     }
 }
