@@ -85,6 +85,7 @@
             </SwipeView>
             <Button Command="{Binding ClearListCommand}" Text="Delete all!"></Button>
             <Button Command="{Binding AddIngredientCommand}" Text="Add food to your LIST!"></Button>
+            <local:AdMobView AdUnitId="{Binding AdUnitId}"  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

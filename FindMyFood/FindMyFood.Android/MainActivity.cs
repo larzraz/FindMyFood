@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 
 
+
 namespace FindMyFood.Droid
 {
     [Activity(Label = "FindMyFood", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -20,6 +21,7 @@ namespace FindMyFood.Droid
 
             base.OnCreate(savedInstanceState);
 
+            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-5976847404502161/8500524820");
             Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental"); 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
