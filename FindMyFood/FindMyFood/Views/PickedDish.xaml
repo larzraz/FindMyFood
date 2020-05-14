@@ -20,7 +20,7 @@
         <vm:PickedDishViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly">
+        <FlexLayout Wrap="Wrap" Direction="Column" Padding="10" Margin="10" JustifyContent="SpaceEvenly" >
             <Grid x:Name="DishGrid" Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
@@ -51,8 +51,8 @@
                                 <DataTemplate>
                                     <ViewCell>
                                         <Grid HeightRequest="25">
-                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}"></Label>
-                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}"></Label>
+                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}" Grid.Column="0"></Label>
+                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}" Grid.Column="1"></Label>
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
@@ -66,8 +66,8 @@
                                 <DataTemplate>
                                     <ViewCell>
                                         <Grid HeightRequest="25">
-                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}" ></Label>
-                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}"></Label>
+                                            <Label Text="{Binding name}" Style="{StaticResource Normal_lbl}" Grid.Column="0" ></Label>
+                                            <Label Text="{Binding amount}" Style="{StaticResource Normal_lbl}" Grid.Column="1"></Label>
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
