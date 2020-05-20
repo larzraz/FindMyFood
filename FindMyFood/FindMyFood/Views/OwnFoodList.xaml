@@ -12,7 +12,6 @@
              Style="{StaticResource PageStyle}">
     <ContentPage.BindingContext>
         <vm:OwnFoodListViewModel/>
-        
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <local:ExpirationdateValueConverter x:Key="ExpirationdateValueConverter"/>
@@ -83,8 +82,10 @@
             <SwipeView>
 
             </SwipeView>
+            <local:AdMobView AdUnitId="{Binding AdUnitId}"  />
             <Button Command="{Binding ClearListCommand}" Text="Delete all!"></Button>
             <Button Command="{Binding AddIngredientCommand}" Text="Add food to your LIST!"></Button>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
