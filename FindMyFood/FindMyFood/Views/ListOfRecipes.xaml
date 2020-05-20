@@ -31,7 +31,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="2*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Source="{Binding Image}"></Image>
