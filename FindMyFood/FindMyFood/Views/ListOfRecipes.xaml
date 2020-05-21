@@ -14,15 +14,12 @@
         <behaviors:EventHandlerBehavior EventName="Appearing">
             <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
         </behaviors:EventHandlerBehavior>
-        <behaviors:EventHandlerBehavior EventName="Disappearing">
-            <behaviors:InvokeCommandAction Command="{Binding PageDisappearingCommand}" />
-        </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
     <ContentPage.Content>
         
         <StackLayout Padding="0,10,0,0">
             <ActivityIndicator Color="Red" IsRunning="{Binding IsLoading}" />
-            <ListView x:Name="ListView_Recipes" ItemsSource="{Binding Recipes}"  ItemSelected="ListView_Recipes_ItemSelected">
+            <ListView x:Name="ListView_Recipes" ItemsSource="{Binding Recipes}"  ItemSelected="{Binding SelectedRecipe}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

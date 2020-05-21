@@ -21,7 +21,7 @@ namespace FindMyFood.Droid
 
             base.OnCreate(savedInstanceState);
 
-            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-3940256099942544/6300978111");
+
             Xamarin.Forms.Forms.SetFlags("SwipeView_Experimental"); 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

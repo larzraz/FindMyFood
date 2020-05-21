@@ -1,5 +1,6 @@
 ﻿using FindMyFood.Api;
 using FindMyFood.Api.Dtos;
+using FindMyFood.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,20 @@ namespace FindMyFood.ViewModels
     public class ListOfRecipesViewModel:BaseViewModel
     {
         private SpoonacularApiClient _api;
+        private Recipe _selectedRecipe;
+        public Recipe SelectedRecipe {
+            get {
+                return _selectedRecipe; 
+            }
+            set { 
+                if(_selectedRecipe != value)
+                {
+                    _selectedRecipe = value;
+                    OnPropertyChanged(nameof(SelectedRecipe));
+                    Store.SelectedRecipe = _selectedRecipe;
+                    NavigateToSelectedRecipe();
+                }
+            } }
         public bool IsLoading { get; set; }
         public ICommand PageAppearingCommand { get; private set; }
         private ObservableCollection<Recipe> _recipes;
@@ -24,6 +39,10 @@ namespace FindMyFood.ViewModels
             PageAppearingCommand = new Command(OnPageAppearing);
             _recipes = new ObservableCollection<Recipe>();
     }
+        private async void NavigateToSelectedDish(Recipe recipe)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new PickedDish());
+        }
 
         private async void OnPageAppearing()
         {

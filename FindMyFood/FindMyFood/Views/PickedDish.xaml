@@ -12,9 +12,6 @@
         <behaviors:EventHandlerBehavior EventName="Appearing">
             <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
         </behaviors:EventHandlerBehavior>
-        <behaviors:EventHandlerBehavior EventName="Disappearing">
-            <behaviors:InvokeCommandAction Command="{Binding PageDisappearingCommand}" />
-        </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
     <ContentPage.BindingContext>
         <vm:PickedDishViewModel/>

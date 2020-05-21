@@ -13,15 +13,6 @@ namespace FindMyFood.Views
         {
             InitializeComponent();
         }
-        private void ListView_Recipes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if(e.SelectedItem == null)
-            {
-                return;
-            }
-            Store.SelectedRecipe = (Recipe)e.SelectedItem;
 
-            Navigation.PushAsync(new PickedDish());
-        }
     }
 }
