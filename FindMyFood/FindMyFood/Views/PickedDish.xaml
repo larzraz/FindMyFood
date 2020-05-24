@@ -18,8 +18,8 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
-        <FlexLayout Wrap="Wrap" Direction="Column" Padding="10" Margin="10" JustifyContent="SpaceEvenly" >
-            <Grid x:Name="DishGrid" Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
+        <FlexLayout Wrap="Wrap" Direction="Row" Padding="10" Margin="10" JustifyContent="SpaceEvenly" >
+            <Grid Padding="0,5" RowSpacing="10" VerticalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="200"/>
