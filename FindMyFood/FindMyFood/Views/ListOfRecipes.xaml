@@ -12,14 +12,14 @@
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
         <behaviors:EventHandlerBehavior EventName="Appearing">
-            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}" />
+            <behaviors:InvokeCommandAction Command="{Binding PageAppearingCommand}"/>
         </behaviors:EventHandlerBehavior>
     </ContentPage.Behaviors>
     <ContentPage.Content>
         
         <StackLayout Padding="0,10,0,0">
             <ActivityIndicator Color="Red" IsRunning="{Binding IsLoading}" />
-            <ListView x:Name="ListView_Recipes" ItemsSource="{Binding Recipes}"  ItemSelected="{Binding SelectedRecipe}">
+            <ListView x:Name="ListView_Recipes" ItemsSource="{Binding Recipes}" ItemSelected="ListView_Recipes_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
